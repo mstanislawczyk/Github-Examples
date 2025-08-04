@@ -1,4 +1,4 @@
-import { Octokit, App } from "octokit";
+const { Octokit, App } = require("octokit");
 
 console.log(`TOKEN: ${process.env.GH_TOKEN}` )
 
@@ -6,7 +6,7 @@ const octokit = new Octokit({
   auth: process.env.GH_TOKEN
 })
 
-await octokit.request('GET /repos/{owner}/{repo}/git/matching-refs/{ref}', {
+octokit.request('GET /repos/{owner}/{repo}/git/matching-refs/{ref}', {
   owner: 'mstanislawczyk',
   repo: 'Github-Examples',
   ref: 'refs/heads/sdksjs',
